@@ -20,3 +20,7 @@ A felhasználó tud fájl feltölteni. letölteni.
 
 A felületen jelenleg megy 1 chat, ami minden csoport sajátja.
 "
+
+A Képek egy "img" nevű mappába mennek!
+
+BY:HB
