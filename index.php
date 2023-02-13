@@ -1,14 +1,22 @@
 <!DOCTYPE html>
+
+<?php
+include('functions.php');
+session_start();
+?>
+
 <html lang="en">
   <head>
     <!--*********************************************************************** -->
     <!-- by : D csapat[Lieber Marcell ][Varga Péter ][Hitter Benjámin ] -->
-    <!-- Jelenleg 8 sectionbol áll az oldal: 1.Navbar 2.Showcase 3.Hírlevél 4.Boxes 5.Tech 6.GYIK 7.Kontakt-Térkép 8.Footer-->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43   2023/01/19 -->
+    <!-- Jelenleg 9 sectionbol áll az oldal: 1.Navbar 2.Showcase 3.Hírlevél 4.Boxes 5.Tech 6.Learn 7.GYIK 8.Kontakt-Térkép 9.Footer-->
+    <!--utolsó modosítás : Hitter Benjámin 16:02 2023/02/11-->
     <!--*********************************************************************** -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg">
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,13 +33,40 @@
     />
     <link rel="stylesheet" href="style.css" />
     <title>Bottyanchat</title>
+
+      <script>
+
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+
+</script>
+
+
   </head>
   <body>
     <!-- 1. Navbar Section-->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43 2023/01/19 -->
+    <!-- utolsó modosítás : Hitter Benjámin 1:55 2023/02/11-->
+  <div>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
       <div class="container">
-        <a href="#" class="navbar-brand">Bottyanchat</a>
+
+      <a href="#" class="navbar-brand">
+      <svg height="130" width="400">
+    <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(13,110,253);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+    </linearGradient>
+    </defs>
+    <ellipse cx="200" cy="70" rx="185" ry="50" fill="url(#grad1)" />
+    <text fill="#ffffff" font-size="45" font-family="Verdana" x="63" y="86">Bottyanchat</text>
+     Sajnos a bongésződ nem támogatja az SVG formátumot :(
+    </svg>
+      </a>
 
         <button
           class="navbar-toggler"
@@ -44,6 +79,9 @@
 
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+              <a href="#login__" class="nav-link">Belépés</a>
+            </li>
             <li class="nav-item">
               <a href="#tech" class="nav-link">Technológia</a>
             </li>
@@ -58,9 +96,13 @@
       </div>
     </nav>
 
+  </div>
+   
     <!-- 2. Showcase Section-->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43 2023/01/19 -->
-    <section
+    <!-- utolsó modosítás : Hitter Benjámin 20:50 2023/02/10 -->
+
+  <div>
+    <section id="login__"
       class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
     >
       <div class="container">
@@ -70,41 +112,42 @@
             <p class="lead my-4">
               Adminisztrációs fiókba való belépésre kattints a gombra:
             </p>
-            <button
-              class="btn btn-primary btn-lg"
-              data-bs-toggle="modal"
-              data-bs-target="#enroll"
-            >
-              Belépés
-            </button>
+            <form action="login.php">
+            <input type="submit" class="btn btn-primary" value="Bejelentkezés" name="belepo" id="belepo">
+              </form>
+   
           </div>
           <img
             class="img-fluid w-50 d-none d-sm-block"
             src="img/showcase.svg"
-            alt=""
+            alt="showcase kep error"
           />
         </div>
       </div>
     </section>
-
+  </div>
     <!-- 3. Hírlevél Section-->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43 2023/01/19 -->
+    <!-- utolsó modosítás : Hitter Benjámin 20:50 2023/02/10 -->
+  <div>
     <section class="bg-primary text-light p-5">
       <div class="container">
         <div class="d-md-flex justify-content-between align-items-center">
-          <h3 class="mb-3 mb-md-0">Iratkozz fel a hírlevelünkre:</h3>
+          <h3 class="mb-3 mb-md-0">Iratkozz fel a hírlevelünkre!</h3>
 
           <div class="input-group news-input">
-            <input type="text" class="form-control" placeholder="email címed" />
+            <input type="text" class="form-control" placeholder="email címed helye" />
             <button class="btn btn-dark btn-lg" type="button">Go!</button>
           </div>
         </div>
       </div>
     </section>
+  </div>
 
     <!-- 4.Boxes Section-->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43 2023/01/19 -->
+    <!-- utolsó modosítás : Hitter Benjámin 20:50 2023/02/10 -->
+  <div>
     <section class="p-5">
+    <div>
       <div class="container">
         <div class="row text-center g-4">
           <div class="col-md">
@@ -151,11 +194,15 @@
           </div>
         </div>
       </div>
+     </div>
     </section>
+  </div>
 
     <!-- 5.Tech Sections -->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43 2023/01/19 -->
+    <!-- utolsó modosítás : Hitter Benjámin 20:50 2023/02/10 -->
+  <div>
     <section id="tech" class="p-5">
+   
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-md">
@@ -180,9 +227,16 @@
           </div>
         </div>
       </div>
+
     </section>
+</div>
+
+    <!-- 6.Learn Sections -->
+    <!-- utolsó modosítás : Hitter Benjámin 20:50 2023/02/10 -->
+  <div>
 
     <section id="learn" class="p-5 bg-dark text-light">
+    
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-md p-5">
@@ -202,11 +256,15 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- 6. GYIK Accordion Section-->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43 2023/01/19 -->
+    </section>
+  </div>
+
+    <!-- 7. GYIK Accordion Section-->
+    <!-- utolsó modosítás : Hitter Benjámin 20:50 2023/02/10 -->
+  <div>
     <section id="questions" class="p-5">
+    
       <div class="container">
         <h2 class="text-center mb-4">Gyakran Ismételt Kérdések</h2>
         <div class="accordion accordion-flush" id="questions">
@@ -321,11 +379,15 @@
           </div>
         </div>
       </div>
-    </section>
+  
+     </section>
+  </div>
 
-    <!-- 7. Kontakt & Térkép Section -->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43 2023/01/19 -->
+    <!-- 8. Kontakt & Térkép Section -->
+    <!-- utolsó modosítás : Hitter Benjámin 20:50 2023/02/10 -->
+  <div>
     <section id="contact" class="p-5">
+  
       <div class="container">
         <div class="row g-4">
           <div class="col-md">
@@ -356,10 +418,14 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- 8.  Footer Section -->
-    <!-- utolsó modosítás : Hitter Benjámin 16:43 2023/01/19 -->
+    </section>
+ </div>
+    <!-- 9.  Footer Section -->
+    <!-- utolsó modosítás : Hitter Benjámin 20:50 2023/02/10 -->
+  <div>
+    <section id="footer" >
+  
     <footer class="p-5 bg-dark text-white text-center position-relative">
       <div class="container">
         <p class="lead">Copyright &copy; 2023 Bottyán János Kutatóközpont</p>
@@ -388,5 +454,10 @@
         zoom: 18,
       })
     </script>
+  
+    </section>
+</div>
+
+<!-- Tartaom Vége -->
   </body>
 </html>
